@@ -1,0 +1,8 @@
+<h1>Learn Chinese</h1>
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let char of characters">
+    <div class="container" style="background: black">
+      <img [src]="char" alt="{{char}}" class="center" />
+    </div>
+  </ng-template>
+</ngb-carousel>
