@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng serve --watch --open",
     "build:ssr": "ng run Alenny.SweetHome:server:dev",

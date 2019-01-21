@@ -19,8 +19,7 @@ x64/
 x86/
 build/
 bld/
-bin/
-Bin/
+bin/Bin/
 obj/
 Obj/
 
@@ -229,3 +228,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Other customized ignore
+**/wwwroot/chinese-characters/

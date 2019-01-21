@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Alenny.SweetHome
 {
@@ -27,6 +28,10 @@ namespace Alenny.SweetHome
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            // Add Swagger service
+            services.AddSwaggerGen(options =>
+                options.SwaggerDoc("v1", new Info { Title = "Alenny.SweetHome", Version = "v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,11 @@ namespace Alenny.SweetHome
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            // Insert Swagger middleware
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Alenny.SweetHome v1"));
 
             app.UseMvc(routes =>
             {

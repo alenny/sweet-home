@@ -1,8 +1,21 @@
 <h1>Learn Chinese</h1>
 <ngb-carousel>
-  <ng-template ngbSlide *ngFor="let char of characters">
+  <ng-template ngbSlide *ngFor="let charImg of charImages">
     <div class="container" style="background: black">
-      <img [src]="char" alt="{{char}}" class="center" />
+      <img [src]="charImg" alt="{{charImg}}" class="center" />
     </div>
   </ng-template>
 </ngb-carousel>
+<h2>Manage Characters</h2>
+<form (ngSubmit)="onAddCharacters()">
+  <div class="form-group">
+    <label for="characters">Characters:</label>
+    <input type="text" class="form-control" name="characters" [(ngModel)]="characters" placeholder="e.g.一二三四" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" [(ngModel)]="password" />
+  </div>
+  <button class="btn btn-primary">Add</button>
+  <button class="btn btn-light" type="button" (click)="onDeleteCharacters()">Delete</button>
+</form>
